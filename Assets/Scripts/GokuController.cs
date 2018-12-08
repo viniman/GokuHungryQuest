@@ -32,8 +32,16 @@ public class GokuController : MonoBehaviour {
             transform.Translate(transform.right * -1 * speed * Time.deltaTime);
         if (Input.GetKey(KeyCode.UpArrow))
             transform.Translate(transform.up * speed * Time.deltaTime);
+
         if (Input.GetKey(KeyCode.DownArrow))
-            transform.Translate(transform.up * -1 * speed * Time.deltaTime);
+        {
+            /// Menor altura no campo de visão da câmera
+            float lowerBound = Camera.main.transform.position.y - Camera.main.orthographicSize;
+
+            /// Só move o Goku pra baixo dentro da visão da câmera
+            if(transform.position.y > lowerBound + 1)
+                transform.Translate(transform.up * -1 * speed * Time.deltaTime);
+        }
             
         if (Input.GetKeyDown(KeyCode.Space))
             shoot();
