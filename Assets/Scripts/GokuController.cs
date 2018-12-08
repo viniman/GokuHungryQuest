@@ -42,6 +42,7 @@ public class GokuController : MonoBehaviour {
     void shoot()
     {
         GameObject proj = Instantiate(projectilePreFab);
+        Physics2D.IgnoreCollision(proj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         proj.transform.position = transform.position;
     }
 
