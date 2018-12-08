@@ -28,12 +28,13 @@ public class GokuController : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Translate(transform.right * speed * Time.deltaTime);
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
             transform.Translate(transform.right * -1 * speed * Time.deltaTime);
-        else if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
             transform.Translate(transform.up * speed * Time.deltaTime);
-        else if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
             transform.Translate(transform.up * -1 * speed * Time.deltaTime);
+            
         if (Input.GetKeyDown(KeyCode.Space))
             shoot();
     }
