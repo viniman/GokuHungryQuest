@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GokuController : MonoBehaviour {
 
@@ -94,6 +95,7 @@ public class GokuController : MonoBehaviour {
     void die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene(2);
 
     }
 
