@@ -31,6 +31,11 @@ public class MainMenuButtons : MonoBehaviour {
 
     public void PlayGame()
     {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadGame()
+    {
         SceneManager.LoadScene(CrossSceneInfo.level);
     }
 
