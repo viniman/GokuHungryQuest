@@ -43,4 +43,14 @@ public class MainMenuButtons : MonoBehaviour {
     {
         Application.Quit();
     }
+
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void GoBack()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
