@@ -31,5 +31,12 @@ public class ProjectileController : MonoBehaviour {
             Destroy(gameObject);
 
         }
+
+        if (collision.gameObject.CompareTag("HardEnemy"))
+        {
+            goku.collect(collision.gameObject);
+            Destroy(gameObject);
+
+        }
     }
 }

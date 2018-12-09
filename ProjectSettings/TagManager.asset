@@ -8,6 +8,7 @@ TagManager:
   - EasyEnemy
   - MediumEnemy
   - Enemy
+  - HardEnemy
   layers:
   - Default
   - TransparentFX

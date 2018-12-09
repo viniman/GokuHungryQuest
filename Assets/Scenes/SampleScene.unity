@@ -260,7 +260,7 @@ MonoBehaviour:
   easyEnemy: {fileID: 1316582874061052, guid: ba577ededec39b54589f942aa87ab446, type: 2}
   mediumEnemy: {fileID: 1224153973062758, guid: 6db082ed5a39b49289084e427ee26add,
     type: 2}
-  hardEnemy: {fileID: 1224153973062758, guid: 6db082ed5a39b49289084e427ee26add, type: 2}
+  hardEnemy: {fileID: 1115367928982018, guid: d439dc77a3bc6427fb874d38e2255469, type: 2}
   coin: {fileID: 1008900631947112, guid: 258c1b5c0a285da478d89d66cba9b8dd, type: 2}
   enemiesPer10x10: 5
   coinsPer10x10: 3
