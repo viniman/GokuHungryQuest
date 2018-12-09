@@ -5,7 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour {
 
-	public void PlayGame()
+    public GameObject loadButton;
+
+    void Start()
+    {
+        //Verificar aqui se existe algum jogo salvo
+        //if(){
+        loadButton.SetActive(true);
+        //}
+    }
+
+    public void PlayGame()
     {
         //1 no ProjectSettings setada como a primeira cena do Jogo
         SceneManager.LoadScene(1);
