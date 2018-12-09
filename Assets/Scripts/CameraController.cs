@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour {
 	void Start ()
 	{
 		previousPlayerY = player.position.y;
-		playerOffsetY = -previousPlayerY;
+		playerOffsetY = transform.position.y - previousPlayerY;
 		transform.position = new Vector3(0, previousPlayerY + playerOffsetY, -10);
 	}
 	

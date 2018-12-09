@@ -35,7 +35,9 @@ public class LevelController : MonoBehaviour
 		float maxX = renderer.bounds.max.x - 2;
 		float maxY = renderer.bounds.max.y - 2;
 		float minX = renderer.bounds.min.x + 2;
-		float minY = renderer.bounds.min.y + 2;
+
+		/// Para que o level não comece com Goku sendo atingido
+		float minY = GameObject.Find("Goku").transform.position.y + 2;
 
 		for(int i=0; i < enemiesToRender; i++)
 		{
