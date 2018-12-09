@@ -44,7 +44,7 @@ public class GokuController : MonoBehaviour {
         if (direction == 1) transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f); 
         if (direction == -1) transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         // changes animation according to current move
-        walking = (direction != 0 || facing != 0);
+        //walking = (direction != 0 || facing != 0);
         animator.SetBool("walking", walking);
         animator.SetInteger("facing", facing);
 
@@ -55,35 +55,40 @@ public class GokuController : MonoBehaviour {
     void handleInput()
     {
         direction = 0;
-        facing = 0;
+        //facing = 0;
+        walking = false;
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
             direction = 1;
             facing = 2;
+            walking = true;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(transform.right * -1 * speed * Time.deltaTime);
             direction = -1;
             facing = 3;
+            walking = true;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(transform.up * speed * Time.deltaTime);
             facing = 1;
+            walking = true;
         }
-
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             /// Menor altura no campo de visão da câmera
             float lowerBound = Camera.main.transform.position.y - Camera.main.orthographicSize;
 
             /// Só move o Goku pra baixo dentro da visão da câmera
-            if(transform.position.y > lowerBound + 1){
+            if(transform.position.y > lowerBound + 0.5){
                 transform.Translate(transform.up * -1 * speed * Time.deltaTime);
                 facing = -1;
+                
             }
+            walking = true;
         }
             
         if (Input.GetKeyDown(KeyCode.Space))
