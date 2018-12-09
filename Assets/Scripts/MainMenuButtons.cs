@@ -51,4 +51,9 @@ public class MainMenuButtons : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
+
+    public void ShowInstructions()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
