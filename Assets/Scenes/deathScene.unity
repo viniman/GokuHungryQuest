@@ -299,7 +299,7 @@ Prefab:
     - target: {fileID: 114131366863127450, guid: 735f87b7e47a7d147839d8271d2cc417,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: GoBack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735f87b7e47a7d147839d8271d2cc417, type: 2}
