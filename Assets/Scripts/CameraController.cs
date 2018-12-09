@@ -5,15 +5,27 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
 	public Transform player;
+	public float playerOffsetY;
+
 	private float previousPlayerY;
-	private float playerOffsetY;
 
 	// Use this for initialization
 	void Start ()
 	{
 		previousPlayerY = player.position.y;
-		playerOffsetY = transform.position.y - previousPlayerY;
-		transform.position = new Vector3(0, previousPlayerY + playerOffsetY, -10);
+		float cameraY = previousPlayerY + playerOffsetY;
+
+		/// Ponto mais alto visível pela câmera
+		float cameraUpperBound = Camera.main.orthographicSize + cameraY;
+
+		/// Ponto mais alto da fase
+		float levelUpperBound = GameObject.Find("Floor").GetComponent<Renderer>().bounds.max.y;
+
+		/// Verifica se a câmera não vai spawnar fora da fase
+		if(cameraUpperBound < levelUpperBound - 1)
+			transform.position = new Vector3(0, cameraY, -10);
+		else
+			transform.position = new Vector3(0, levelUpperBound - Camera.main.orthographicSize - 1, -10);
 	}
 	
 	// Update is called once per frame

@@ -17,9 +17,15 @@ public class GokuController : MonoBehaviour {
     private GameObject projectilePreFab;
     private Animator animator;
 
+    void Awake()
+    {
+        coinCounter = CrossSceneInfo.coinsCollected;
+        transform.position = CrossSceneInfo.pointToSpawn;
+        /// TODO: Adicionar o estado do Goku
+    }
+
 	// Use this for initialization
 	void Start () {
-        coinCounter = 0;
         walking = false;
         direction = 0;
         facing = 1;
@@ -82,6 +88,15 @@ public class GokuController : MonoBehaviour {
             
         if (Input.GetKeyDown(KeyCode.Space))
             shoot();
+
+
+        if(Input.GetKeyDown(KeyCode.S)) // TODO: Mudar pra salvar quando pega um item
+        {
+            SaveLoadController.SaveGame(SceneManager.GetActiveScene().buildIndex, transform.position,
+                                        coinCounter, 1); // TODO: Passar o estado atual do Goku
+
+            Debug.Log("Jogo salvo!");
+        }
     }
 
     void shoot()
@@ -107,6 +122,7 @@ public class GokuController : MonoBehaviour {
     {
         Destroy(go);
         coinCounter += 1;
+        Debug.Log("Coins: " + coinCounter);
     }
 
     void OnCollisionEnter2D(Collision2D collider){

@@ -9,16 +9,29 @@ public class MainMenuButtons : MonoBehaviour {
 
     void Start()
     {
-        //Verificar aqui se existe algum jogo salvo
-        //if(){
-        loadButton.SetActive(true);
-        //}
+        SaveData saveData = SaveLoadController.LoadGame();
+
+        if(saveData != null)
+        {
+            CrossSceneInfo.level = saveData.level;
+            CrossSceneInfo.pointToSpawn = saveData.positionOnLevel();
+            CrossSceneInfo.coinsCollected = saveData.coinsCollected;
+            CrossSceneInfo.gokuState = saveData.gokuState;
+
+            loadButton.SetActive(true);
+        }
+        else
+        {
+            CrossSceneInfo.level = 1; // 1 no ProjectSettings setada como a primeira cena do Jogo
+            CrossSceneInfo.pointToSpawn = new Vector3(0, -3, 0);
+            CrossSceneInfo.coinsCollected = 0;
+            CrossSceneInfo.gokuState = 1; // Estado normal do Goku
+        }
     }
 
     public void PlayGame()
     {
-        //1 no ProjectSettings setada como a primeira cena do Jogo
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(CrossSceneInfo.level);
     }
 
     public void ExitGame()

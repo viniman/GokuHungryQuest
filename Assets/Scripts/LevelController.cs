@@ -26,11 +26,6 @@ public class LevelController : MonoBehaviour
 	void renderEnemies()
 	{
 		Renderer renderer = GetComponent<Renderer>();
-		float levelArea = renderer.bounds.size.x * renderer.bounds.size.y;
-
-		/// Número total de inimigos a serem criados na fase, levelArea / 100 representa quantos
-		/// blocos de 10x10 cabem na fase
-		int enemiesToRender = Mathf.FloorToInt( (levelArea / 100) * enemiesPer10x10 );
 
 		float maxX = renderer.bounds.max.x - 2;
 		float maxY = renderer.bounds.max.y - 2;
@@ -38,6 +33,12 @@ public class LevelController : MonoBehaviour
 
 		/// Para que o level não comece com Goku sendo atingido
 		float minY = GameObject.Find("Goku").transform.position.y + 2;
+		
+		float levelArea = (maxX - minX) * (maxY - minY);
+
+		/// Número total de inimigos a serem criados na fase, levelArea / 100 representa quantos
+		/// blocos de 10x10 cabem na fase
+		int enemiesToRender = Mathf.FloorToInt( (levelArea / 100) * enemiesPer10x10 );
 
 		for(int i=0; i < enemiesToRender; i++)
 		{
