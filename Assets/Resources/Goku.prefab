@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114670992542218492}
   - component: {fileID: 50326100505865306}
   - component: {fileID: 61635242910605290}
+  - component: {fileID: 95018725557090744}
   m_Layer: 0
   m_Name: Goku
   m_TagString: Player
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220924078997230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -3.8213615, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,6 +89,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 1.6}
   m_EdgeRadius: 0
+--- !u!95 &95018725557090744
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220924078997230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6744f2f1492abd74987d569671ee338e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114670992542218492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ea9e2638e392844a522e25ccd4b935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
 --- !u!212 &212240571643398710
 SpriteRenderer:
   m_ObjectHideFlags: 1
