@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(player.position.y > previousPlayerY) // Câmera só anda pra frente
+		if(player && player.position.y > previousPlayerY) // Câmera só anda pra frente
 		{
 			/// Ponto mais alto visível pela câmera
 			float cameraUpperBound = Camera.main.orthographicSize + transform.position.y;

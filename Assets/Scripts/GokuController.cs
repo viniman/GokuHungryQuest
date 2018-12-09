@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class GokuController : MonoBehaviour {
 
     public float speed;
-    private int coinCounter;
-
-    private int direction; // 1 while going right, -1 while going left, 0 while going up or down
-    private int facing; // 1 while going up, -1 while going down, 0 while going right or left
+    
+    public int direction; // 1 while going right, -1 while going left, 0 while going up or down
+    public int facing; // 1 while going up, -1 while going down, 0 while going right or left
+    //2 right 3 left
+    
     private bool walking;
+    private int coinCounter;
 
     private GameObject projectilePreFab;
     private Animator animator;
@@ -52,11 +54,13 @@ public class GokuController : MonoBehaviour {
         {
             transform.Translate(transform.right * speed * Time.deltaTime);
             direction = 1;
+            facing = 2;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(transform.right * -1 * speed * Time.deltaTime);
             direction = -1;
+            facing = 3;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {

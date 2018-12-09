@@ -20,7 +20,7 @@ public class HardEnemyController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if(Vector3.Distance(transform.position, goku.transform.position) < distanceToPlayer)
+		if(goku && Vector3.Distance(transform.position, goku.transform.position) < distanceToPlayer)
 		{
 			transform.Translate( Vector3.Normalize(goku.transform.position - transform.position) *
 								speed * Time.deltaTime );
