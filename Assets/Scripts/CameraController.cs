@@ -21,8 +21,18 @@ public class CameraController : MonoBehaviour {
 	{
 		if(player.position.y > previousPlayerY) // Câmera só anda pra frente
 		{
-			transform.position = new Vector3(0, player.position.y + playerOffsetY, -10);
-			previousPlayerY = player.position.y;
+			/// Ponto mais alto visível pela câmera
+			float cameraUpperBound = Camera.main.orthographicSize + transform.position.y;
+
+			/// Ponto mais alto da fase
+			float levelUpperBound = GameObject.Find("Floor").GetComponent<Renderer>().bounds.max.y;
+
+			/// Só move a câmera se ela estiver dentro dos limites da fase
+			if(cameraUpperBound < levelUpperBound - 1)
+			{
+				transform.position = new Vector3(0, player.position.y + playerOffsetY, -10);
+				previousPlayerY = player.position.y;
+			}
 		}
 	}
 }
