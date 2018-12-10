@@ -17,15 +17,15 @@ public class GokuController : MonoBehaviour {
     private GameObject projectilePreFab;
     private Animator animator;
 
-    void Awake()
+	// Use this for initialization
+	void Start ()
     {
         coinCounter = CrossSceneInfo.coinsCollected;
-        transform.position = CrossSceneInfo.pointToSpawn;
-        /// TODO: Adicionar o estado do Goku
-    }
 
-	// Use this for initialization
-	void Start () {
+        transform.position = CrossSceneInfo.pointToSpawn;
+        Debug.Log(transform.position);
+        /// TODO: Adicionar o estado do Goku
+
         walking = false;
         direction = 0;
         facing = 1;
@@ -130,6 +130,19 @@ public class GokuController : MonoBehaviour {
         Debug.Log("Coins: " + coinCounter);
     }
 
+    void finishLevel()
+    {
+        CrossSceneInfo.level = 5;
+        CrossSceneInfo.pointToSpawn = new Vector3(0, -4, 0);
+        CrossSceneInfo.coinsCollected = coinCounter;
+        CrossSceneInfo.gokuState = 1;
+
+        SaveLoadController.SaveGame(CrossSceneInfo.level, CrossSceneInfo.pointToSpawn,
+                                    CrossSceneInfo.coinsCollected, CrossSceneInfo.gokuState);
+
+        SceneManager.LoadScene(CrossSceneInfo.level);
+    }
+
     void OnCollisionEnter2D(Collision2D collider){
 
         if (collider.gameObject.CompareTag("EasyEnemy"))
@@ -146,6 +159,11 @@ public class GokuController : MonoBehaviour {
         {
             Destroy(collider.gameObject);
             die();
+        }
+
+        if(collider.gameObject.name == "EndOfLevel")
+        {
+            finishLevel();
         }
     }
     

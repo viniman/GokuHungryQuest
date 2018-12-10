@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2095393491}
-  playerOffsetY: 3
+  playerOffsetY: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4166668201143504, guid: 1c0bf13c20916b44a98542b804fb3841, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.8213615
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4166668201143504, guid: 1c0bf13c20916b44a98542b804fb3841, type: 2}
       propertyPath: m_LocalPosition.z
@@ -398,6 +398,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670992542218492, guid: 1c0bf13c20916b44a98542b804fb3841,
+        type: 2}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c0bf13c20916b44a98542b804fb3841, type: 2}
@@ -465,9 +470,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1932994972}
   - component: {fileID: 1932994974}
-  - component: {fileID: 1932994973}
   m_Layer: 0
-  m_Name: End
+  m_Name: EndOfLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -486,17 +490,6 @@ Transform:
   m_Father: {fileID: 394928807}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1932994973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1932994971}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4447d6cea2f8b408b9f1d4569f4dd108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1932994974
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class CameraController : MonoBehaviour {
 	{
 		previousPlayerY = player.position.y;
 		float cameraY = previousPlayerY + playerOffsetY;
+		Debug.Log("PlayerY: " + previousPlayerY);
+		Debug.Log("CameraY: " + cameraY);
 
 		/// Ponto mais alto visível pela câmera
 		float cameraUpperBound = Camera.main.orthographicSize + cameraY;
