@@ -8,14 +8,17 @@ public class GokuController : MonoBehaviour {
     public float speed;
     
     public int direction; // 1 while going right, -1 while going left, 0 while going up or down
-    public int facing; // 1 while going up, -1 while going down, 0 while going right or left
-    //2 right 3 left
+    public int facing; // 1 while going up, -1 while going down, 2 while going right or 3 while going left
     
     private bool walking;
     private int coinCounter;
 
     private GameObject projectilePreFab;
     private Animator animator;
+
+    private AudioSource audioSource;
+    public AudioClip fire;
+    public AudioClip initiateFase;
 
 	// Use this for initialization
 	void Start ()
@@ -32,8 +35,10 @@ public class GokuController : MonoBehaviour {
 
         projectilePreFab = Resources.Load("Projectile") as GameObject;
         animator = GetComponent<Animator>();
-		
-	}
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(initiateFase);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -106,6 +111,7 @@ public class GokuController : MonoBehaviour {
 
     void shoot()
     {
+        audioSource.PlayOneShot(fire);
         GameObject proj = Instantiate(projectilePreFab);
         Physics2D.IgnoreCollision(proj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         proj.transform.position = transform.position;
@@ -142,6 +148,8 @@ public class GokuController : MonoBehaviour {
 
         SceneManager.LoadScene(CrossSceneInfo.level);
     }
+    
+    
 
     void OnCollisionEnter2D(Collision2D collider){
 
@@ -166,5 +174,12 @@ public class GokuController : MonoBehaviour {
             finishLevel();
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("Scenes/creditsScene");
+        }
+    }
 }

@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9a5a7200edc2f41aa08220b4f8b184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadButton: {fileID: 0}
+  loadButton: {fileID: 49668056}
 --- !u!1 &116547566
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf9a5a7200edc2f41aa08220b4f8b184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadButton: {fileID: 0}
+  loadButton: {fileID: 49668056}
 --- !u!114 &1180159992
 MonoBehaviour:
   m_ObjectHideFlags: 0

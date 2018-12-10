@@ -41,7 +41,7 @@ public class ProjectileController : MonoBehaviour {
         if (collision.gameObject.CompareTag("EasyEnemy"))
         {
             goku.collect(collision.gameObject);
-            Destroy(gameObject);
+            
         }
 
         if (collision.gameObject.CompareTag("MediumEnemy"))
@@ -63,5 +63,10 @@ public class ProjectileController : MonoBehaviour {
 			collision.gameObject.SendMessage("shootBoss");
 			Destroy(gameObject);
 		}
+	    
+	    if(collision.gameObject.CompareTag("Wall"))
+	    {
+		    Destroy(gameObject);
+	    }
     }
 }

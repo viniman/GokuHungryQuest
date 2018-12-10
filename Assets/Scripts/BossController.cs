@@ -17,6 +17,8 @@ public class BossController : MonoBehaviour
 
 	private Vector3 direction;
 
+	public GameObject siriCascudo;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -27,11 +29,16 @@ public class BossController : MonoBehaviour
 
 		health = 100;
 		lastShotTime = Time.time;
+
+		siriCascudo.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		if(!this)
+			return;
+		
 		if(Random.value < 0.01) // Troca de direção
 			direction = -direction;
 
@@ -45,22 +52,23 @@ public class BossController : MonoBehaviour
 	}
 
 	void shootProjectile()
-	{
+	{	
 		GameObject instance = Instantiate(projectile);
-		instance.transform.position = transform.position;
-		instance.transform.up = GameObject.Find("Goku").transform.position - transform.position;
-
+		if(this) instance.transform.position = transform.position;
+		if(this) instance.transform.up = GameObject.Find("Goku").transform.position - transform.position;
 		instance.transform.Rotate(new Vector3(0, 0, Random.Range(-30, 30)));
 	}
 
 	void killBoss()
 	{
 		Destroy(gameObject);
+		siriCascudo.SetActive(true);
 	}
 
 	void shootBoss()
 	{
-		health -= 2;
+		health -= 5;
+		health *= 0.95f;
 
 		if(health > 0)
 			Debug.Log("Boss health: " + health);
