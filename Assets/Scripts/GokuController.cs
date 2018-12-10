@@ -134,11 +134,19 @@ public class GokuController : MonoBehaviour {
 
         if (collider.gameObject.CompareTag("EasyEnemy"))
             Debug.Log("Colliding with easy enemy");
-        if (collider.gameObject.CompareTag("MediumEnemy") || collider.gameObject.CompareTag("HardEnemy"))
+
+        if (collider.gameObject.CompareTag("MediumEnemy") ||
+            collider.gameObject.CompareTag("HardEnemy") || collider.gameObject.CompareTag("Boss"))
             die();
+            
         if (collider.gameObject.CompareTag("Coin"))
             collect(collider.gameObject);
                 
+        if(collider.gameObject.CompareTag("BossProjectile"))
+        {
+            Destroy(collider.gameObject);
+            die();
+        }
     }
     
 }

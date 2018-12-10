@@ -57,5 +57,11 @@ public class ProjectileController : MonoBehaviour {
             Destroy(gameObject);
 
         }
+
+		if(collision.gameObject.CompareTag("Boss"))
+		{
+			collision.gameObject.SendMessage("shootBoss");
+			Destroy(gameObject);
+		}
     }
 }

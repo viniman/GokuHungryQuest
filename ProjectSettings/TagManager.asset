@@ -9,6 +9,9 @@ TagManager:
   - MediumEnemy
   - Enemy
   - HardEnemy
+  - Wall
+  - Boss
+  - BossProjectile
   layers:
   - Default
   - TransparentFX
